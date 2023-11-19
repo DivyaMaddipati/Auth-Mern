@@ -8,12 +8,14 @@ function Signup () {
 
     const [name, setName] = useState('')
     const [email, setemail] = useState('')
+    const [bio, setBio] = useState('')
+    const [title, setTitle] = useState('')
     const [password, setPassword] = useState('')
     const navigate = useNavigate()
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        axios.post('http://localhost:3001/register',{name, email, password})
+        axios.post('http://localhost:3000/register',{name, email, bio, title, password})
         .then((result) => {
             console.log(result)
             if(result.data === "Success"){
@@ -56,6 +58,34 @@ function Signup () {
                             id = "email"
                             className='form-control rounded-0'
                             onChange={(e) => setemail(e.target.value)}
+                            />
+                        </div>
+                        <div className='md-3'>
+                            <label htmlFor='bio'>
+                                <strong>Bio</strong>
+                            </label>
+                            <input 
+                            type="text"
+                            placeholder='Enter something about you'
+                            autoComplete = "off"
+                            name="bio"
+                            className='form-control rounded-0'
+                            id = "bio"
+                            onChange={(e) => setBio(e.target.value)}
+                            />
+                        </div>
+                        <div className='md-3'>
+                            <label htmlFor='title'>
+                                <strong>Title</strong>
+                            </label>
+                            <input 
+                            type="text"
+                            placeholder='Enter Title'
+                            autoComplete = "off"
+                            name="title"
+                            className='form-control rounded-0'
+                            id = "title"
+                            onChange={(e) => setTitle(e.target.value)}
                             />
                         </div>
                         <div className='md-3'>

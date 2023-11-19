@@ -12,10 +12,11 @@ function Login(){
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        axios.post('http://localhost:3001/login',{email, password})
+        axios.post('http://localhost:3000/login',{email, password})
         .then((result) => {
             console.log(result)
             if(result.data === "Success"){
+                localStorage.setItem('userEmail', email);
                 navigate('/home')
             }
         })

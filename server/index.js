@@ -44,6 +44,21 @@ app.post("/login", (req,res) => {
 
 })
 
-app.listen(3001, () => {
+// Add this route after the login route
+app.get('/login/:email', (req, res) => {
+    const email = req.params.email;
+    UsersModel.findOne({ email:email })
+      .then(user => {
+        if (user) {
+          res.json(user);
+        } else {
+          res.status(404).json({ message: 'User not found' });
+        }
+      })
+      .catch(err => res.status(500).json({ message: 'Internal Server Error' }));
+  });
+  
+
+app.listen(3000, () => {
     console.log("server is running")
 })

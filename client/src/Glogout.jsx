@@ -1,6 +1,6 @@
 import {GoogleLogout} from 'react-google-login';
 
-const clientId = "http://842523348082-nog8olqesbn8i8mutqgghdpo28g5r0pb.apps.googleusercontent.com";
+const clientId = "842523348082-nog8olqesbn8i8mutqgghdpo28g5r0pb.apps.googleusercontent.com";
 
 function Glogout(){
 
